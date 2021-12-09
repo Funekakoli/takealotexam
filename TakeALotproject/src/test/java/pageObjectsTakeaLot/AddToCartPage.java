@@ -1,5 +1,7 @@
 package pageObjectsTakeaLot;
 
+import static org.testng.Assert.assertEquals;
+
 import java.util.Iterator;
 import java.util.Set;
 
@@ -25,11 +27,15 @@ public class AddToCartPage extends BasePage {
 		driver.switchTo().window(childWindowID); // switch to new window by passing the ID of the child window
 	}
 
-	public String VerifyAddedToCartIsDisplayed() {
-		return getElementText(By.xpath("//span[contains(text(), 'Added to cart')]"));
-		// return getElementText(By.xpath("//span[contains(@class,
-		// 'shiitake-children')]"));
-		// return getElementText(By.xpath("//span[@Class = 'shiitake-children']"));
+	public String getAddedToCartMessage() {
+		return getElementText(By.xpath(
+				"//div[@class='cell auto drawer-title drawer-screen-module_drawer-title_3BX9x']//*[@class='shiitake-children']"));
+	}
+
+	public void VerifyAddedToCartIsDisplayed() {
+		assertEquals(getElementText(By.xpath(
+				"//div[@class='cell auto drawer-title drawer-screen-module_drawer-title_3BX9x']//*[@class='shiitake-children']")),
+				"Added to cart");
 	}
 
 	public void ClickTheGoToCartButton() {
@@ -46,5 +52,13 @@ public class AddToCartPage extends BasePage {
 
 	public String AssertCartValue() {
 		return getElementText(By.xpath("//span[contains(@class, 'currency plus currency-module_currency_29IIm')]"));
+
+	}
+
+	public String SpendMoreMessage() {
+		// return getElementText(By.xpath("//div[@class='cart-content-module_show-free-delivery_DHnaQ free-delivery-module_free-delivery-tab_3xNIm]"));
+		return getElementText(By.xpath(
+				"//div[@id='shopfront-app']//*[@class='cart-content-module_show-free-delivery_DHnaQ free-delivery-module_free-delivery-tab_3xNIm']"));
+
 	}
 }

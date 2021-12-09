@@ -7,17 +7,16 @@
 
 	<test thread-count="5" name="Test">
 	 <classes>  
-			<class name="takealotproject.DailyDealsTests" >
+			<class name="takealotproject.SearchByProduct" >
 			<methods>
-				<include name="GIVEN_Customer_Clicks_On_DailyDealsButton_THEN_All_Available_Deals_Should_Be_Displayed" />
+				<include name="GIVEN_Customer_Search_For_Product_THEN_All_Available_Products_Should_Be_Displayed" />
 				<include name="Assert_That_There_Are_More_Than_0_Items_Displayed" />
-				<include name="GIVEN_There_Is_Less_Than_One_SelectedItem_Displayed_THEN_Skip_The_TestCase" />
-				<include name="GIVEN_First_Item_Is_Selected_THEN_Add_To_Cart_Button_Must_Be_Displyed" />
-				<include name="GIVEN_First_Item_Is_Selected_THEN_Add_Item_To_Cart" />
-				<include name="Assert_That_AddedToCart_Appears" />
-				<include name="GIVEN_A_Customer_Has_Added_An_Item_In_Cart_THEN_Click_Go_To_Cart_Button" />
-				<include name="GIVEN_A_Customer_Has_Added_An_Item_In_Cart_AND_Click_Go_To_Cart_Button_THEN_Select_2_Items_As_Quantity" />
-
+				<include name="GIVEN_There_Is_Less_Than_One_Selected_Item_Or_Brand_Displayed_THEN_Skip_The_TestCase" />
+				<include name="GIVEN_First_Item_Is_Selected_THEN_Add_Product_To_Cart_AND_Assert_That_AddedToCart_Appears" />
+				<include name="GIVEN_A_Customer_Has_Added_A_Product_In_Cart_AND_Click_Go_To_Cart_Button_THEN_Select_2_Items_As_Quantity" />
+				<include name="Read_Brands_AND_Quamtity_From_Excel_And_Loop_All_The_Steps" />
+				<include name="GIVEN_A_Customer_Add_Items_Less_Than_R450_THEN_Verify_If_Free_Delivery_Message_is_Displayed" />
+			
 			</methods>
 			</class>
 		</classes>
